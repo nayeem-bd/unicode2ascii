@@ -2,13 +2,23 @@
   "name": "unicode2ascii",
   "version": "1.0.0",
   "description": "A package for converting Unicode Bengali text to Bijoy Ascii format.",
-  "main": ".src/index.js",
-  "type": "module",
+  "main": "dist/unicode2ascii.cjs",
+  "module": "dist/unicode2ascii.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/unicode2ascii.es.js",
+      "require": "./dist/unicode2ascii.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "scripts": {
-    "test": "node ./test/unicode2ascii.test.js"
+    "build": "vite build",
+    "test": "node test/unicode2ascii.test.js"
   },
   "keywords": [
     "unicode",
@@ -17,5 +27,12 @@
     "bengali"
   ],
   "author": "Md. Nimuzzaman",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^4.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nayeem-bd/unicode2ascii.git"
+  }
 }

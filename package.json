@@ -1,0 +1,21 @@
+{
+  "name": "unicode2ascii",
+  "version": "1.0.0",
+  "description": "A package for converting Unicode Bengali text to Bijoy Ascii format.",
+  "main": ".src/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "test": "node ./test/unicode2ascii.test.js"
+  },
+  "keywords": [
+    "unicode",
+    "bangla",
+    "bijoy",
+    "bengali"
+  ],
+  "author": "Md. Nimuzzaman",
+  "license": "MIT"
+}

@@ -1,13 +1,26 @@
-function o(a) {
+function A(a) {
   return a == "ি" || a == "ৈ" || a == "ে";
 }
-function t(a) {
+function g(a) {
   return a == "ক" || a == "খ" || a == "গ" || a == "ঘ" || a == "ঙ" || a == "চ" || a == "ছ" || a == "জ" || a == "ঝ" || a == "ঞ" || a == "ট" || a == "ঠ" || a == "ড" || a == "ঢ" || a == "ণ" || a == "ত" || a == "থ" || a == "দ" || a == "ধ" || a == "ন" || a == "প" || a == "ফ" || a == "ব" || a == "ভ" || a == "ম" || a == "শ" || a == "ষ" || a == "স" || a == "হ" || a == "য" || a == "র" || a == "ল" || a == "য়" || a == "ং" || a == "ঃ" || a == "ঁ" || a == "ৎ";
 }
-function h(a) {
+function u(a) {
   return a == "্";
 }
-var b = {
+function b(a) {
+  return a == "া" || a == "ো" || a == "ৌ" || a == "ৗ" || a == "ু" || a == "ূ" || a == "ী" || a == "ৃ";
+}
+function f(a) {
+  return !!(A(a) || b(a));
+}
+function v(a) {
+  return a == "ং" || a == "ঃ" || a == "ঁ";
+}
+function l(a) {
+  return a == " " || a == "	" || a == `
+` || a == "\r";
+}
+var t = {
   "।": "|",
   "‘": "Ô",
   "’": "Õ",
@@ -229,43 +242,324 @@ var b = {
   "ঃ": "t",
   "ঁ": "u"
 };
-function f(a) {
-  for (var g = 0, e = 0; e < a.length; e++) {
-    if (e < a.length && o(a.charAt(e))) {
-      for (var r = 1; t(a.charAt(e - r)) && !(e - r < 0 || e - r <= g); )
-        if (h(a.charAt(e - r - 1)))
-          r += 2;
+function k(a) {
+  for (var e = 0, r = 0; r < a.length; r++) {
+    if (r < a.length && A(a.charAt(r))) {
+      for (var c = 1; g(a.charAt(r - c)) && !(r - c < 0 || r - c <= e); )
+        if (u(a.charAt(r - c - 1)))
+          c += 2;
         else
           break;
-      var c = a.substring(0, e - r);
-      c += a.charAt(e), c += a.substring(e - r, e), c += a.substring(e + 1, a.length), a = c, g = e + 1;
+      var h = a.substring(0, r - c);
+      h += a.charAt(r), h += a.substring(r - c, r), h += a.substring(r + 1, a.length), a = h, e = r + 1;
       continue;
     }
-    if (e < a.length - 1 && h(a.charAt(e)) && a.charAt(e - 1) == "র" && !h(a.charAt(e - 2))) {
-      for (var r = 1, u = 0; ; )
-        if (t(a.charAt(e + r)) && h(a.charAt(e + r + 1)))
-          r += 2;
-        else if (t(a.charAt(e + r)) && o(a.charAt(e + r + 1))) {
-          u = 1;
+    if (r < a.length - 1 && u(a.charAt(r)) && a.charAt(r - 1) == "র" && !u(a.charAt(r - 2))) {
+      for (var c = 1, n = 0; ; )
+        if (g(a.charAt(r + c)) && u(a.charAt(r + c + 1)))
+          c += 2;
+        else if (g(a.charAt(r + c)) && A(a.charAt(r + c + 1))) {
+          n = 1;
           break;
         } else
           break;
-      var c = a.substring(0, e - 1);
-      c += a.substring(e + r + 1, e + r + u + 1), c += a.substring(e + 1, e + r + 1), c += a.charAt(e - 1), c += a.charAt(e), c += a.substring(e + r + u + 1, a.length), a = c, e += r + u, g = e + 1;
+      var h = a.substring(0, r - 1);
+      h += a.substring(r + c + 1, r + c + n + 1), h += a.substring(r + 1, r + c + 1), h += a.charAt(r - 1), h += a.charAt(r), h += a.substring(r + c + n + 1, a.length), a = h, r += c + n, e = r + 1;
       continue;
     }
   }
   return a;
 }
-function A(a, g) {
-  var e = b;
-  a === "bijoy" && (e = b);
-  var r;
-  r = new RegExp("ো", "g"), g = g.replace(r, "ো"), r = new RegExp("ৌ", "g"), g = g.replace(r, "ৌ"), g = f(g);
-  for (var c in e)
-    r = new RegExp(c, "g"), g = g.replace(r, e[c]);
-  return g;
+function R(a, e) {
+  var r = t;
+  a === "bijoy" && (r = t);
+  var c;
+  c = new RegExp("ো", "g"), e = e.replace(c, "ো"), c = new RegExp("ৌ", "g"), e = e.replace(c, "ৌ"), e = k(e);
+  for (var h in r)
+    c = new RegExp(h, "g"), e = e.replace(c, r[h]);
+  return e;
+}
+var o = {
+  "i¨": "র‌্য",
+  "ª¨": "্র্য",
+  "°": "ক্ক",
+  "±": "ক্ট",
+  "³": "ক্ত",
+  "K¡": "ক্ব",
+  "¯Œ": "স্ক্র",
+  µ: "ক্র",
+  "K¬": "ক্ল",
+  "¶": "ক্ষ",
+  ÿ: "ক্ষ",
+  "·": "ক্স",
+  "¸": "গু",
+  "»": "গ্ধ",
+  Mœ: "গ্ন",
+  "M¥": "গ্ম",
+  "M­": "গ্ল",
+  "¼": "ঙ্ক",
+  "•¶": "ঙ্ক্ষ",
+  "•L": "ঙ্খ",
+  "½": "ঙ্গ",
+  "•N": "ঙ্ঘ",
+  "•": "ক্স",
+  "”P": "চ্চ",
+  "”Q": "চ্ছ",
+  "”Q¡": "চ্ছ্ব",
+  "”T": "চ্ঞ",
+  "¾¡": "জ্জ্ব",
+  "¾": "জ্জ",
+  À: "জ্ঝ",
+  Á: "জ্ঞ",
+  "R¡": "জ্ব",
+  Â: "ঞ্চ",
+  Ã: "ঞ্ছ",
+  Ä: "ঞ্জ",
+  Å: "ঞ্ঝ",
+  Æ: "ট্ট",
+  "U¡": "ট্ব",
+  "U¥": "ট্ম",
+  Ç: "ড্ড",
+  È: "ণ্ট",
+  É: "ণ্ঠ",
+  Ý: "ন্স",
+  Ê: "ণ্ড",
+  "š‘": "ন্তু",
+  "Y\\^": "ণ্ব",
+  Ë: "ত্ত",
+  "Ë¡": "ত্ত্ব",
+  Ì: "ত্থ",
+  "Z¥": "ত্ম",
+  "š—¡": "ন্ত্ব",
+  "Z¡": "ত্ব",
+  Î: "ত্র",
+  "_¡": "থ্ব",
+  "˜M": "দ্গ",
+  "˜N": "দ্ঘ",
+  Ï: "দ্দ",
+  "×": "দ্ধ",
+  "˜¡": "দ্ব",
+  Ø: "দ্ব",
+  "™¢": "দ্ভ",
+  Ù: "দ্ম",
+  "`ª“": "দ্রু",
+  aŸ: "ধ্ব",
+  "a¥": "ধ্ম",
+  "›U": "ন্ট",
+  Ú: "ন্ঠ",
+  Û: "ন্ড",
+  šÍ: "ন্ত",
+  "š—": "ন্ত",
+  "š¿": "ন্ত্র",
+  "š’": "ন্থ",
+  "›`": "ন্দ",
+  "›Ø": "ন্দ্ব",
+  Ü: "ন্ধ",
+  bœ: "ন্ন",
+  "š\\^": "ন্ব",
+  "b¥": "ন্ম",
+  Þ: "প্ট",
+  ß: "প্ত",
+  cœ: "প্ন",
+  à: "প্প",
+  cø: "প্ল",
+  "c­": "প্ল",
+  á: "প্স",
+  "d¬": "ফ্ল",
+  â: "ব্জ",
+  ã: "ব্দ",
+  ä: "ব্ধ",
+  eŸ: "ব্ব",
+  "e­": "ব্ল",
+  å: "ভ্র",
+  gœ: "ম্ন",
+  "¤ú": "ম্প",
+  ç: "ম্ফ",
+  "¤\\^": "ম্ব",
+  "¤¢": "ম্ভ",
+  "¤£": "ম্ভ্র",
+  "¤§": "ম্ম",
+  "¤­": "ম্ল",
+  "i“": "রু",
+  iæ: "রু",
+  iƒ: "রূ",
+  é: "ল্ক",
+  ê: "ল্গ",
+  ë: "ল্ট",
+  ì: "ল্ড",
+  í: "ল্প",
+  î: "ল্ফ",
+  "j¦": "ল্ব",
+  "j¥": "ল্ম",
+  jø: "ল্ল",
+  ï: "শু",
+  ð: "শ্চ",
+  kœ: "শ্ন",
+  kø: "শ্ল",
+  "k¦": "শ্ব",
+  "k¥": "শ্ম",
+  "k­": "শ্ল",
+  "®‹": "ষ্ক",
+  "®Œ": "ষ্ক্র",
+  ó: "ষ্ট",
+  ô: "ষ্ঠ",
+  ò: "ষ্ণ",
+  "®ú": "ষ্প",
+  õ: "ষ্ফ",
+  "®§": "ষ্ম",
+  "¯‹": "স্ক",
+  "÷": "স্ট",
+  ö: "স্খ",
+  "¯—": "স্ত",
+  "¯Í": "স্ত",
+  "¯‘": "স্তু",
+  "¯¿": "স্ত্র",
+  "¯’": "স্থ",
+  mœ: "স্ন",
+  "¯ú": "স্প",
+  ù: "স্ফ",
+  "¯\\^": "স্ব",
+  "¯§": "স্ম",
+  "¯­": "স্ল",
+  û: "হু",
+  nè: "হ্ণ",
+  ý: "হ্ন",
+  þ: "হ্ম",
+  "n¬": "হ্ল",
+  ü: "হৃ",
+  "©": "র্",
+  Av: "আ",
+  A: "অ",
+  B: "ই",
+  C: "ঈ",
+  D: "উ",
+  E: "ঊ",
+  F: "ঋ",
+  G: "এ",
+  H: "ঐ",
+  I: "ও",
+  J: "ঔ",
+  K: "ক",
+  L: "খ",
+  M: "গ",
+  N: "ঘ",
+  O: "ঙ",
+  P: "চ",
+  Q: "ছ",
+  R: "জ",
+  S: "ঝ",
+  T: "ঞ",
+  U: "ট",
+  V: "ঠ",
+  W: "ড",
+  X: "ঢ",
+  Y: "ণ",
+  Z: "ত",
+  _: "থ",
+  "`": "দ",
+  a: "ধ",
+  b: "ন",
+  c: "প",
+  d: "ফ",
+  e: "ব",
+  f: "ভ",
+  g: "ম",
+  h: "য",
+  i: "র",
+  j: "ল",
+  k: "শ",
+  l: "ষ",
+  m: "স",
+  n: "হ",
+  o: "ড়",
+  p: "ঢ়",
+  q: "য়",
+  r: "ৎ",
+  0: "০",
+  1: "১",
+  2: "২",
+  3: "৩",
+  4: "৪",
+  5: "৫",
+  6: "৬",
+  7: "৭",
+  8: "৮",
+  9: "৯",
+  v: "া",
+  w: "ি",
+  x: "ী",
+  y: "ু",
+  z: "ু",
+  "~": "ূ",
+  "„": "ৃ",
+  "‡": "ে",
+  "†": "ে",
+  "‰": "ৈ",
+  "\\ˆ": "ৈ",
+  Š: "ৗ",
+  Ô: "‘",
+  Õ: "’",
+  "\\|": "।",
+  Ò: "“",
+  Ó: "”",
+  s: "ং",
+  t: "ঃ",
+  u: "ঁ",
+  ª: "্র",
+  Ö: "্র",
+  "«": "্র",
+  "¨": "্য",
+  "\\&": "্",
+  "…": "ৃ"
+};
+function p(a) {
+  for (var e = 0; e < a.length; e++) {
+    if (e > 0 && a.charAt(e) == "্" && (f(a.charAt(e - 1)) || v(a.charAt(e - 1))) && e < a.length - 1) {
+      var r = a.substring(0, e - 1);
+      r += a.charAt(e), r += a.charAt(e + 1), r += a.charAt(e - 1), r += a.substring(e + 2, a.length), a = r;
+    }
+    if (e > 0 && e < a.length - 1 && a.charAt(e) == "্" && a.charAt(e - 1) == "র" && a.charAt(e - 2) != "্" && f(a.charAt(e + 1))) {
+      var r = a.substring(0, e - 1);
+      r += a.charAt(e + 1), r += a.charAt(e - 1), r += a.charAt(e), r += a.substring(e + 2, a.length), a = r;
+    }
+    if (e < a.length - 1 && a.charAt(e) == "র" && u(a.charAt(e + 1)) && !u(a.charAt(e - 1))) {
+      for (var c = 1; !(e - c < 0); )
+        if (g(a.charAt(e - c)) && u(a.charAt(e - c - 1)))
+          c += 2;
+        else if (c == 1 && f(a.charAt(e - c)))
+          c++;
+        else
+          break;
+      var r = a.substring(0, e - c);
+      r += a.charAt(e), r += a.charAt(e + 1), r += a.substring(e - c, e), r += a.substring(e + 2, a.length), a = r, e += 1;
+      continue;
+    }
+    if (e < a.length - 1 && A(a.charAt(e)) && l(a.charAt(e + 1)) == !1) {
+      for (var r = a.substring(0, e), c = 1; g(a.charAt(e + c)) && u(a.charAt(e + c + 1)); )
+        c += 2;
+      r += a.substring(e + 1, e + c + 1);
+      var h = 0;
+      a.charAt(e) == "ে" && a.charAt(e + c + 1) == "া" ? (r += "ো", h = 1) : a.charAt(e) == "ে" && a.charAt(e + c + 1) == "ৗ" ? (r += "ৌ", h = 1) : r += a.charAt(e), r += a.substring(e + c + h + 1, a.length), a = r, e += c;
+    }
+    if (e < a.length - 1 && a.charAt(e) == "ঁ" && b(a.charAt(e + 1))) {
+      var r = a.substring(0, e);
+      r += a.charAt(e + 1), r += a.charAt(e), r += a.substring(e + 2, a.length), a = r;
+    }
+  }
+  return a;
+}
+function x(a, e) {
+  var r = o;
+  a == "bijoy" && (r = o);
+  for (var c in r) {
+    var h = new RegExp(c, "g");
+    e = e.toString().replace(h, r[c]);
+  }
+  e = p(e);
+  var h = new RegExp("অা", "g");
+  return e = e.replace(h, "আ"), e;
 }
 export {
-  A as ConvertToASCII
+  R as ConvertToASCII,
+  x as ConvertToUnicode
 };

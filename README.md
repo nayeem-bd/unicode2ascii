@@ -1,6 +1,6 @@
 # unicode2ascii
 
-A package for converting Unicode Bengali text to Bijoy Ascii format.
+A package for converting Unicode Bengali text to Bijoy Ascii format and vise versa.
 
 ### Install
 
@@ -24,6 +24,16 @@ ConvertToASCII("bijoy", "বাংলা প্রিন্ট টেস্ট")
 
 ```javascript
 evsjv wc«›U ‡U÷
+```
+
+### Example
+
+```javascript
+ConvertToUnicode("bijoy","evsjv wc«›U ‡U÷")
+```
+
+```javascript
+বাংলা প্রিন্ট টেস্ট
 ```
 
 ### Development

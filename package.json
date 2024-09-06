@@ -1,6 +1,6 @@
 {
   "name": "unicode2ascii",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A package for converting Unicode Bengali text to Bijoy Ascii format and vise versa.",
   "main": "dist/unicode2ascii.cjs",
   "module": "dist/unicode2ascii.es.js",
